@@ -8,7 +8,5 @@ COPY ./tools/mdb.sh /mdb.sh
 
 RUN chmod +x /mdb.sh
 
-RUN systemctl enable mariadb.service
-
 # start the service
 ENTRYPOINT [ "./mdb.sh" ]
