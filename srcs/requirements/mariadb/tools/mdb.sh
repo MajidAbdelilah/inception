@@ -1,4 +1,3 @@
-set -x
 service mariadb start # start mariadb
 sleep 5 # wait for mariadb to start
 
@@ -13,7 +12,6 @@ mariadb -e "GRANT ALL PRIVILEGES ON ${MYSQL_DB}.* TO \`${MYSQL_USER}\`@'%';"
 
 # Flush privileges to apply changes
 mariadb -e "FLUSH PRIVILEGES;"
-
 
 # Shutdown mariadb to restart with new config
 mysqladmin -u root -p$MYSQL_ROOT_PASSWORD shutdown
