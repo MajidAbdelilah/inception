@@ -1,5 +1,6 @@
 systemctl start mariadb.service
 # sleep 7
+ 
 
 mariadb -e "CREATE DATABASE IF NOT EXISTS '${MYSQL_DB}';"
 
