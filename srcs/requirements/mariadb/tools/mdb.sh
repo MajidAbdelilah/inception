@@ -1,6 +1,6 @@
 
 service mariadb start # start mariadb
-sleep 10 # wait for mariadb to start
+sleep 5 # wait for mariadb to start
 
 # Create database if not exists
 mariadb -e "CREATE DATABASE IF NOT EXISTS \`${MYSQL_DB}\`;"
