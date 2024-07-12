@@ -1,17 +1,22 @@
-systemctl start mariadb.service
-# sleep 7
- 
 
-mariadb -e "CREATE DATABASE IF NOT EXISTS '${MYSQL_DB}';"
+service mariadb start # start mariadb
+sleep 10 # wait for mariadb to start
 
-# mariadb -e "CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}';"
+# Create database if not exists
+mariadb -e "CREATE DATABASE IF NOT EXISTS \`${MYSQL_DB}\`;"
 
-# mariadb -e "GRANT ALL PRIVILEGES ON ${MYSQL_DB}.* TO '${MYSQL_USER}'@'localhost';"
+# Create user if not exists
+mariadb -e "CREATE USER IF NOT EXISTS \`${MYSQL_USER}\`@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';"
 
-# mariadb -e "FLUSH PRIVILEGES;"
+# Grant privileges to user
+mariadb -e "GRANT ALL PRIVILEGES ON ${MYSQL_DB}.* TO \`${MYSQL_USER}\`@'%';"
 
-#shut down mariadb
-# systemctl stop mariadb
+# Flush privileges to apply changes
+mariadb -e "FLUSH PRIVILEGES;"
 
-#start mariadb
-# mysqld_safe --port=3306 --bind-address=0.0.0.0 --datadir='/var/lib/mysql'
+
+# Shutdown mariadb to restart with new config
+mysqladmin -u root -p$MYSQL_ROOT_PASSWORD shutdown
+
+# Restart mariadb with new config in the background to keep the container running
+mysqld_safe --port=3306 --bind-address=0.0.0.0 --datadir='/var/lib/mysql'
