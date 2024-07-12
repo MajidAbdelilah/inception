@@ -10,5 +10,5 @@ COPY ./tools/mdb.sh /mdb.sh
 RUN chmod +x /mdb.sh
 
 # start the service
-SHELL ["/bin/bash", "-x"]
-ENTRYPOINT ["./mdb.sh" ]
+
+ENTRYPOINT ["/bin/bash", "-x", "./mdb.sh" ]
