@@ -1,7 +1,7 @@
 FROM  debian:bookworm
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
-	curl php php7.4-fpm php-mysql mariadb-client netcat
+	curl php php-fpm php-mysql mariadb-client
 
 COPY ./tools/install.sh /install.sh
 
