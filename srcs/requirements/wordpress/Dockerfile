@@ -7,4 +7,4 @@ COPY ./tools/install.sh /install.sh
 
 RUN chmod +x /install.sh
 
-ENTRYPOINT [ "./install.sh" ]
+ENTRYPOINT ["/bin/bash", "-x", "./install.sh" ]
