@@ -1,7 +1,7 @@
 FROM  debian:bookworm
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y \
-	curl php php-fpm php-mysql mariadb-client
+RUN apt update && apt upgrade -y && apt install -y \
+	curl php  php8.3-fpm  php-mysql mariadb-client
 
 COPY ./tools/install.sh /install.sh
 
