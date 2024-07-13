@@ -29,7 +29,7 @@ wp user create "$WP_U_NAME" "$WP_U_EMAIL" --user_pass="$WP_U_PASS" --role="$WP_U
 #---------------------------------------------------php config---------------------------------------------------#
 
 # change listen port from unix socket to 9000
-sed -i '36 s@/run/php/php8.2-fpm.sock@9000@' /etc/php/8.2/fpm/pool.d/www.conf
+sed -i '36 s@/run/php/php8.2-fpm.sock@127.0.0.1:9000@' /etc/php/8.2/fpm/pool.d/www.conf
 # create a directory for php-fpm
 mkdir -p /run/php
 # start php-fpm service in the foreground to keep the container running
