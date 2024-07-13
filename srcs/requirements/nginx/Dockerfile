@@ -15,6 +15,4 @@ RUN mkdir -p /var/www/wordpress
 # change the owner of the wordpress directory to www-data
 RUN chown -R www-data:www-data /var/www/wordpress
 
-RUN /bin/bash -x nginx -t
-
 CMD ["nginx", "-g", "daemon off;"]
