@@ -1,7 +1,7 @@
 
 services:
   wordpress:
-    image: wordpress:user
+    image: wordpress:amajid
     container_name: wordpress
     build: ./requirements/wordpress
     depends_on:
@@ -15,7 +15,7 @@ services:
     restart: always
     
   nginx:
-    image: nginx:user
+    image: nginx:amajid
     container_name: nginx
     build: ./requirements/nginx
     ports:
@@ -29,7 +29,7 @@ services:
     restart: always
     
   mariadb:
-    image: mariadb:user
+    image: mariadb:amajid
     container_name: mariadb
     build: ./requirements/mariadb
     volumes:

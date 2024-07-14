@@ -1,5 +1,5 @@
-WP_DATA = /home/data/wordpress
-DB_DATA = /home/data/mariadb
+WP_DATA = /home/amajid/data/wordpress
+DB_DATA = /home/amajid/data/mariadb
 up: build
 	@mkdir -p $(WP_DATA)
 	@mkdir -p $(DB_DATA)
