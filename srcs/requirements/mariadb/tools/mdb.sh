@@ -1,6 +1,6 @@
 set -x
 service mariadb start # start mariadb
-sleep 8 # wait for mariadb to start
+sleep 5
 
 # Create user if not exists
 mariadb -e "CREATE USER IF NOT EXISTS \`${MYSQL_USER}\`@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';"
