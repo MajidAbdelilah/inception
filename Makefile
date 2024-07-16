@@ -10,7 +10,7 @@ build:
 	docker compose -f ./srcs/docker-compose.yml build
 
 fclean: clean
-	docker system prune -a &
+	docker system prune -a
 
 clean:
 	docker stop $(docker ps -qa) &
