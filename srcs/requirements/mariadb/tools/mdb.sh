@@ -1,4 +1,3 @@
-set -x
 service mariadb start # start mariadb
 sleep 5
 
